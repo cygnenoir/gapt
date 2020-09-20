@@ -1,0 +1,26 @@
+package gapt.formats.json.nd
+
+import gapt.proofs.lk.transformations.LKToND
+import gapt.proofs.nd.NDProof
+import org.specs2.mutable.Specification
+import gapt.examples.sequence.LinearExampleProof
+
+class NDProofCodecTest extends Specification {
+  import gapt.formats.json.nd.NDProofCodec._
+
+  "The ND proof de/serializer" should {
+    "serialize and deserialize a small proof" in {
+      val p: NDProof = LKToND( LinearExampleProof( 3 ) )
+      val json = _ndProofEncoder( p )
+      val pNew = _ndProofDecoder.decodeJson( json )
+      pNew must beRight( p )
+    }
+
+    "serialize and deserialize a bigger proof" in {
+      val p: NDProof = LKToND( gapt.examples.theories.nat.add0l.combined() )
+      val json = _ndProofEncoder( p )
+      val pNew = _ndProofDecoder.decodeJson( json )
+      pNew must beRight( p )
+    }
+  }
+}

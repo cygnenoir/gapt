@@ -8,17 +8,44 @@ target
 testing/TSTP/prover9
 testing/TSTP/leanCoP
 testing/veriT-SMT-LIB/QF_UF
+testing/TIP/benchmarks
+
+# cut-intro experiments
+/*.json
+/termsets
+
+# logging configuration
+logback.xml
+core/src/main/resources/logback-test.xml
 
 # latex
 doc/*.aux
 doc/*.bbl
 doc/*.blg
 doc/*.log
-doc/*.pdf
+doc/user_manual.pdf
 doc/*.toc
 doc/*.fdb_latexmk
 doc/*.fls
 doc/*.out
+doc/*.lox
+doc/*.bcf
+doc/*.run.xml
+doc/*.synctex.gz
+doc/auto
+doc/_region_.*
+doc/prv_user_manual.fmt
+doc/*.tex.backup
+*-proposal/*.aux
+*-proposal/*.bbl
+*-proposal/*.blg
+*-proposal/*.log
+*-proposal/*.pdf
+*-proposal/*.toc
+*-proposal/*.fdb_latexmk
+*-proposal/*.fls
+*-proposal/*.out
+*-proposal/*.synctex.gz
 
 # vim
 .*.sw?
@@ -30,3 +57,10 @@ doc/*.out
 .project
 .classpath
 .cache
+.cache-main
+.cache-test
+.cache-tests
+*.settings
+
+# emacs
+/.ensime*
